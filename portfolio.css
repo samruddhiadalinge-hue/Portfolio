@@ -6,11 +6,22 @@ html{
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    background-color: #080808;
+body {
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(255, 0, 79, 0.08),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(255, 0, 79, 0.06),
+            transparent 30%
+        ),
+        #0b0b0f;
+
     color: #fff;
     font-family: 'Montserrat', sans-serif;
-
 }
 #header{
     width: 100%;
@@ -65,69 +76,154 @@ nav ul li a:hover::after{
     padding: 100px 8%;
     min-height: 100vh;
 }
-.intro{
-   color: white;
-    min-height: calc(100vh - 80px); /* navbar height */
+.intro {
+    min-height: 85vh;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
-    padding: 40px 8% 0;
-    
- }
-.intro-name{
-    margin-top: 150px;
-}
-.intro-name h3{
-    font-size: 1.5rem;
-    font-weight: 400;
-    opacity: 0.8;
-}
-.intro-name h1{
-    font-size: 5rem;
-    line-height: 1.2;
+    gap: 60px;
+    padding: 80px 8%;
 }
 
-.intro-name h1 span{
-    color: #ff004f;
+/* LEFT SIDE */
+
+.intro-name {
+    flex: 1;
+    max-width: 650px;
 }
-.intro-name h2{
-    font-size: 1.4rem;
-    font-weight: 400;
-    margin-top: 0.5rem;
+
+.intro-greeting {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #777;
+    letter-spacing: 1px;
 }
-.intro-cards{
+
+.intro-name h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin: 0;
+    font-weight: 700;
+}
+
+.intro-name h1 span {
+    color: #e75480;
+}
+
+.intro-name h2 {
+    font-size: 1.8rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.intro-description {
+    max-width: 550px;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+
+.intro-buttons {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 10px 18px;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
-    font-size: 1rem;
-    border-left: 3px solid #ff004f;
-    transition: transform 0.3s ease;
-    margin-left: 60px;
-    margin-top: 75px;
+    gap: 15px;
+    align-items: stretch;
 }
-.card {
-    padding: 12px 20px;
-    background: rgba(255, 255, 255, 0.08);
+
+.resume-btn,
+.github-btn {
+    height: 48px;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 24px;
     border-radius: 8px;
-    border-left: 3px solid #ff004f;
-    line-height: 1.4;
-    opacity: 0.7;
-    box-shadow: 0 8px 8px black;
+    text-decoration: none;
+    font-weight: 600;
     transition: 0.3s ease;
 }
-.card:hover {
-    transform: translateX(6px);
-    opacity: 1;
-    box-shadow: 0 8px 16px #ff004f;
+
+.resume-btn {
+    background-color: #e75480;
+    color: white;
 }
-.main-card{
+
+.resume-btn:hover {
+    transform: translateY(-3px);
+}
+
+.github-btn {
+    border: 2px solid #e75480;
+    color: #e75480;
+    background: transparent;
+}
+
+.github-btn:hover {
+    background-color: #e75480;
+    color: white;
+    transform: translateY(-3px);
+}
+
+
+/* RIGHT SIDE */
+
+.intro-cards {
+    flex: 0 0 360px;
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 400px;
+    justify-content: center;
+}
+
+.main-card {
+    width: 100%;
+    padding: 35px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(231, 84, 128, 0.2);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.card-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #e75480;
+    margin-bottom: 8px;
+}
+
+.main-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+}
+
+
+/* INDIVIDUAL SKILL CARDS */
+
+.main-card .card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    background: #fff;
+    font-weight: 500;
+    color: #333;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: 0.3s ease;
+}
+
+.main-card .card i {
+    width: 25px;
+    color: #e75480;
+    font-size: 1.1rem;
+}
+
+.main-card .card:hover {
+    transform: translateX(5px);
 }
 .about {
     display: flex;
@@ -379,4 +475,75 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: #aaa;
     line-height: 1.8;
+}
+/* =========================
+   HERO RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 900px) {
+
+    .intro {
+        flex-direction: column;
+        text-align: center;
+        padding: 70px 6%;
+    }
+
+    .intro-name {
+        max-width: 700px;
+    }
+
+    .intro-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .intro-buttons {
+        justify-content: center;
+    }
+
+    .intro-cards {
+        width: 100%;
+        max-width: 450px;
+        flex-basis: auto;
+    }
+
+    .main-card {
+        text-align: left;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .intro {
+        padding: 50px 5%;
+        gap: 40px;
+    }
+
+    .intro-name h1 {
+        font-size: 2.8rem;
+    }
+
+    .intro-name h2 {
+        font-size: 1.4rem;
+    }
+
+    .intro-description {
+        font-size: 0.95rem;
+    }
+
+    .intro-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .resume-btn,
+    .github-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .main-card {
+        padding: 25px;
+    }
 }
